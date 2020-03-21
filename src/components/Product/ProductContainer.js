@@ -9,6 +9,7 @@ import ProductEditForm from "./ProductEditForm";
 import { ProgressBar } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 import { durationInDays, formatDate } from "../HelperFunctions";
+import ReactSnackBar from "react-js-snackbar";
 
 export default function ProductContainer() {
   const params = useParams(); // used to get params from the App.js where Route was defined
@@ -59,6 +60,9 @@ export default function ProductContainer() {
   return (
     <div className="productcontainer">
       <h2>YOUR PRODUCTS LIST</h2>
+      <ReactSnackBar Icon={<span>🧾</span>} Show="true">
+        Click on the + to add a doc
+      </ReactSnackBar>
       <div>
         {state.productState.products.length > 0 &&
           state.productState.products.map(product => {

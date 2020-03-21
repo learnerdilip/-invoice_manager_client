@@ -4,7 +4,7 @@ import { Navbar } from "react-bootstrap";
 export default function Footer() {
   return (
     <div>
-      <Navbar bg="warning" variant="light">
+      <Navbar id="footer" bg="warning" variant="light">
         <Navbar.Brand href="/">
           <img
             alt=""

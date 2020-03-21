@@ -33,13 +33,13 @@ const LoginContainer = () => {
 
   if (state.userState.token)
     return (
-      <div className="loginhomeredirect">
-        <h2>Welcome, You are Logged in!</h2>
+      <div className="loginhomeredirect loginsignupmain">
+        <h2>Welcome, You are now Logged in!</h2>
         <Link to="/">GO TO HOME</Link>
       </div>
     );
   return (
-    <div>
+    <div className="loginsignupmain">
       <h2>Please Login here!</h2>
       <Form onSubmit={handleSubmit}>
         <Form.Label>EMAIL*</Form.Label>

@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { sendSignup } from "../../store/user/action";
 import { Form, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import ReactSnackBar from "react-js-snackbar";
 
 const SignupContainer = () => {
   const dispatch = useDispatch();
@@ -42,15 +43,18 @@ const SignupContainer = () => {
 
   if (state.userState.newUser)
     return (
-      <div className="loginhomeredirect">
+      <div className="loginhomeredirect loginsignupmain">
         <h2>You are registered now!</h2>
         <Link to="/">GO TO HOME</Link>
         <br />
         <Link to="/login">GO TO LOGIN</Link>
+        <ReactSnackBar Icon={<span>👽</span>} Show="true">
+          Please login to use this app!
+        </ReactSnackBar>
       </div>
     );
   return (
-    <div>
+    <div className="loginsignupmain">
       <h2>Please SignUp here!</h2>
       <Form onSubmit={handleSubmit}>
         <Form.Group controlId="formBasicEmail">
