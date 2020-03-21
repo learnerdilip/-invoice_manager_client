@@ -1,10 +1,10 @@
 import axios from "axios";
 
-const baseURL = `https://dlip-invoice-server.herokuapp.com`;
+import { baseUrl } from "../../components/HelperFunctions";
 
 export const sendSignup = signupData => async dispatch => {
   console.log("the signup data ", signupData);
-  const response = await axios.post(`${baseURL}/signup`, signupData);
+  const response = await axios.post(`${baseUrl}/signup`, signupData);
   dispatch(usersignedup(response.data));
 };
 const usersignedup = data => {
@@ -17,7 +17,7 @@ const usersignedup = data => {
 
 export const sendLogin = loginData => async dispatch => {
   // console.log("the login data ", loginData);
-  const response = await axios.post(`${baseURL}/login`, loginData);
+  const response = await axios.post(`${baseUrl}/login`, loginData);
   dispatch(userloggedin(response.data));
 };
 const userloggedin = data => {

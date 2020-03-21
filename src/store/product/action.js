@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseUrl = `https://dlip-invoice-server.herokuapp.com`;
+import { baseUrl } from "../../components/HelperFunctions";
 
 export const createProduct = productFormData => async (dispatch, getState) => {
   const userToken = getState().user.token;
