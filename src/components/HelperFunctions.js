@@ -6,5 +6,5 @@ export const durationInDays = (t1, t2) =>
 
 export const formatDate = date => moment(date).format("MMMM Do YYYY");
 
-export const baseUrl = "http://localhost:4000";
-// export const baseUrl = "https://dlip-invoice-server.herokuapp.com";
+// export const baseUrl = "http://localhost:4000";
+export const baseUrl = "https://dlip-invoice-server.herokuapp.com";
