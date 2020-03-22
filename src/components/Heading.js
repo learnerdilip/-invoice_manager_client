@@ -1,7 +1,8 @@
 import React from "react";
 import { Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import AppFeaures from "./AppFeaures";
 
 export default function Heading() {
   const dispatch = useDispatch();
@@ -11,6 +12,8 @@ export default function Heading() {
     });
   };
 
+  const state = useSelector(reduxState => reduxState.user.name);
+
   return (
     <div>
       <Navbar bg="warning" variant="light">
@@ -18,6 +21,11 @@ export default function Heading() {
           <i class="fa fa-archive"></i>
           <b style={{ fontFamily: "Monoton" }}>INVOICE AND WARRANTY MANAGER</b>
         </Navbar.Brand>
+        {state && <h6> USER: {state} </h6>}
+        <Link to="/about">
+          <h6>ABOUT APP</h6>
+        </Link>
+
         <div className="loginsignupinnav">
           <Link onClick={handleLogout} to="/">
             LOGOUT

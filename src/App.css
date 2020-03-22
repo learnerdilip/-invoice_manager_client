@@ -60,7 +60,7 @@ nav.navbar.navbar-expand.navbar-light.bg-primary {
 }
 
 p.card-text {
-  color: orange;
+  color: #9a6708;
 }
 
 .expiringproductdashboard {
@@ -83,6 +83,7 @@ p.card-text {
   font-size: 2.5rem;
   color: rgb(228, 185, 59);
   box-shadow: grey -4px 3px 14px 3px;
+  background-image: url("https://image.shutterstock.com/image-photo/stripped-bricks-red-wall-paint-260nw-453415948.jpg");
 }
 
 .productListing {

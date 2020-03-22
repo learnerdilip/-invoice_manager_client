@@ -11,6 +11,7 @@ import ProductContainer from "./components/Product/ProductContainer";
 import DocumentContainer from "./components/document/DocumentContainer";
 import Heading from "./components/Heading";
 import Footer from "./components/Footer";
+import AppFeaures from "./components/AppFeaures";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route exact path="/login" component={LoginContainer} />
         <Route exact path="/signup" component={SignupContainer} />
         <Route exact path="/room/:room_name" component={ProductContainer} />
+        <Route exact path="/about" component={AppFeaures} />
         <Route
           path="/room/:room_name/:document_name"
           component={DocumentContainer}

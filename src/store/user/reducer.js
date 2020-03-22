@@ -1,6 +1,7 @@
 const initialState = {
   userId: null,
   token: null,
+  name: "",
   newUser: null
 };
 
@@ -11,6 +12,7 @@ export default function userReducer(state = initialState, action = {}) {
         ...state,
         userId: action.payload.id,
         token: action.payload.token,
+        name: action.payload.name,
         newUser: null
       };
     }

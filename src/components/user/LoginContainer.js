@@ -60,6 +60,9 @@ const LoginContainer = () => {
         />
         <Button type="submit">Submit</Button>
       </Form>
+      <h6 style={{textAlign:"center"}}>
+        Don't have an account yet? <Link to="/signup">CLICK HERE!</Link>{" "}
+      </h6>
     </div>
   );
 };
