@@ -41,6 +41,9 @@ const LoginContainer = () => {
   return (
     <div className="loginsignupmain">
       <h2>Please Login here!</h2>
+      <div class="g-signin2" data-onsuccess="onSignIn">
+        
+      </div>
       <Form onSubmit={handleSubmit}>
         <Form.Label>EMAIL*</Form.Label>
         <Form.Control
@@ -60,7 +63,7 @@ const LoginContainer = () => {
         />
         <Button type="submit">Submit</Button>
       </Form>
-      <h6 style={{textAlign:"center"}}>
+      <h6 style={{ textAlign: "center" }}>
         Don't have an account yet? <Link to="/signup">CLICK HERE!</Link>{" "}
       </h6>
     </div>
