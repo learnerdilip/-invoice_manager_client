@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { sendLogin } from "../../store/user/action";
 import { Form, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 const LoginContainer = () => {
   const dispatch = useDispatch();
@@ -31,19 +31,13 @@ const LoginContainer = () => {
     });
   };
 
-  if (state.userState.token)
-    return (
-      <div className="loginhomeredirect loginsignupmain">
-        <h2>Welcome, You are now Logged in!</h2>
-        <Link to="/">GO TO HOME</Link>
-      </div>
-    );
+  const history = useHistory();
+
+  if (state.userState.token) history.push("/");
   return (
     <div className="loginsignupmain">
       <h2>Please Login here!</h2>
-      <div class="g-signin2" data-onsuccess="onSignIn">
-        
-      </div>
+      <div class="g-signin2" data-onsuccess="onSignIn"></div>
       <Form onSubmit={handleSubmit}>
         <Form.Label>EMAIL*</Form.Label>
         <Form.Control

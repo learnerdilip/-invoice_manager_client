@@ -51,6 +51,11 @@ nav.navbar.navbar-expand.navbar-light.bg-primary {
   margin: auto;
   min-height: 87vh;
 }
+.g-signin2 {
+  width: auto;
+  margin-top: 3rem;
+  margin-left: 50%;
+}
 
 .theroomslist {
   display: flex;

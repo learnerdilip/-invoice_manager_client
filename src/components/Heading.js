@@ -14,6 +14,7 @@ export default function Heading() {
 
   const state = useSelector(reduxState => reduxState.user.name);
 
+
   return (
     <div>
       <Navbar bg="warning" variant="light">
