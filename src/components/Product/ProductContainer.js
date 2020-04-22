@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import moment from "moment";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams, Link } from "react-router-dom";
-import { Button } from "react-bootstrap";
+import { Button, Modal } from "react-bootstrap";
 import { deleteProduct } from "../../store/product/action";
 import ProductForm from "./ProductForm";
 import ProductEditForm from "./ProductEditForm";
@@ -16,9 +16,9 @@ export default function ProductContainer() {
   // console.log("the params", params);
   const dispatch = useDispatch();
 
-  const state = useSelector(reduxState => {
+  const state = useSelector((reduxState) => {
     return {
-      productState: reduxState.product
+      productState: reduxState.product,
     };
   });
 
@@ -26,7 +26,7 @@ export default function ProductContainer() {
     backgroundColor: "white",
     color: "black",
     border: "white",
-    boxShadow: "gray 0px 0px 2px"
+    boxShadow: "gray 0px 0px 2px",
   };
 
   const [form, setForm] = useState(false);
@@ -36,7 +36,7 @@ export default function ProductContainer() {
     setForm(!form);
   };
 
-  const handleDelete = productId => {
+  const handleDelete = (productId) => {
     const confirmDelete = window.confirm(
       `Are you sure you want to delete productID: ${productId}`
     );
@@ -45,17 +45,19 @@ export default function ProductContainer() {
     }
   };
 
-  const handleEdit = productId => {
+  const handleEdit = (productId) => {
     const confirmEdit = window.confirm("You are about to Edit");
     if (confirmEdit) {
       const pdtTochange = state.productState.products.filter(
-        prod => prod.id === productId
+        (prod) => prod.id === productId
       );
       // console.log("---the pdt to change---", pdtTochange[0]);
       const editableItem = pdtTochange[0];
       setEditData(editableItem);
     }
   };
+
+  const [modal, setModal] = useState(false);
 
   return (
     <div className="productcontainer">
@@ -65,7 +67,7 @@ export default function ProductContainer() {
       </ReactSnackBar>
       <div>
         {state.productState.products.length > 0 &&
-          state.productState.products.map(product => {
+          state.productState.products.map((product) => {
             const maxmoment = durationInDays(
               product.warranty_end_date,
               product.warranty_start_date
@@ -89,7 +91,7 @@ export default function ProductContainer() {
                       onClick={() => {
                         dispatch({
                           type: "UPDATE_CURRENT_PRODUCT",
-                          payload: product
+                          payload: product,
                         });
                         handleDelete(product.id);
                       }}
@@ -102,7 +104,7 @@ export default function ProductContainer() {
                       onClick={() => {
                         dispatch({
                           type: "UPDATE_CURRENT_PRODUCT",
-                          payload: product
+                          payload: product,
                         });
                         handleEdit(product.id);
                       }}
@@ -141,7 +143,7 @@ export default function ProductContainer() {
                       onClick={() => {
                         dispatch({
                           type: "UPDATE_CURRENT_PRODUCT",
-                          payload: product
+                          payload: product,
                         });
                       }}
                     >
@@ -153,11 +155,19 @@ export default function ProductContainer() {
             );
           })}
       </div>
-      <Button className="addButton" onClick={() => seeForm()}>
+      <Button className="addButton" onClick={() => setModal(true)}>
         <i class="fa fa-plus"></i>
       </Button>
+      <Modal
+        show={modal}
+        onHide={() => {
+          setForm(true);
+          setModal(false);
+        }}
+      >
+        {form && <ProductForm />}
+      </Modal>
       {editData && <ProductEditForm data={editData} />}
-      {form && <ProductForm />}
     </div>
   );
 }

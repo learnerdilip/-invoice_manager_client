@@ -12,10 +12,10 @@ import ReactSnackBar from "react-js-snackbar";
 export default function RoomContainer(props) {
   const dispatch = useDispatch();
 
-  const state = useSelector(reduxState => {
+  const state = useSelector((reduxState) => {
     return {
       rooms: reduxState.room.rooms,
-      user: reduxState.user.token
+      user: reduxState.user.token,
     };
   });
 
@@ -27,7 +27,7 @@ export default function RoomContainer(props) {
     dispatch(updateRoomProduct(roomId));
     dispatch({
       type: "UPDATE_CURRENT_ROOM",
-      payload: room
+      payload: room,
     });
   };
 
@@ -48,7 +48,7 @@ export default function RoomContainer(props) {
       <RoomFormContainer />
       <div className="theroomslist">
         {state.rooms.length > 0 &&
-          state.rooms.map(room => (
+          state.rooms.map((room) => (
             <Card className="roomcards">
               <Card.Body>
                 <Link

@@ -8,9 +8,9 @@ export default function ExpiringProducts() {
   useEffect(() => {
     // dispatch();
   }, []);
-  const state = useSelector(reduxState => {
+  const state = useSelector((reduxState) => {
     return {
-      expiringProductsList: reduxState.room.expiringProductIds
+      expiringProductsList: reduxState.room.expiringProductIds,
     };
   });
 
@@ -28,10 +28,10 @@ export default function ExpiringProducts() {
     <Card className="expiringproductdashboard">
       <h3>The products with expiring warranty are:</h3>
       <ul>
-        {state.expiringProductsList.map(item => (
+        {state.expiringProductsList.map((item) => (
           <h5 className="expirationwarning">
-            Your <b>{item.deviceName}</b> has{" "}
-            <b style={{ color: "orange" }}>{item.warrantyLeft} days</b> left for
+            Your <i>{item.deviceName}</i> has{" "}
+            <i style={{ color: "red" }}>{item.warrantyLeft} days</i> left for
             expiration
           </h5>
         ))}

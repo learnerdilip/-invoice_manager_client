@@ -8,8 +8,6 @@
   font-family: var(--main-font-family);
   width: 80%;
   margin: auto;
-  /* border: gray double 0.5px; */
-  /* box-shadow: grey -2px -20px 20px 14px; */
   padding: 1rem;
   text-align: center;
   min-height: 87vh;
@@ -72,7 +70,7 @@ p.card-text {
   margin-top: 2rem;
   background-color: #ffc107;
   padding: 3rem 3rem;
-  color: black;
+  color: gray;
   box-shadow: 0px 0px 5px;
 }
 
@@ -141,9 +139,9 @@ form {
 }
 
 .addButton {
-  /* border-radius: 50%; */
-  background-color: blue;
   position: fixed;
+  display: block;
+  border-radius: 50% !important;
   bottom: 6rem;
   right: 6rem;
   width: 4rem;
@@ -153,6 +151,10 @@ form {
 
 button.btn.btn-primary {
   background-color: #ffc107;
+}
+
+#userform {
+  width: 80%;
 }
 
 .roomform {
@@ -212,4 +214,16 @@ input.form-control {
     display: inline-block;
     width: 80%;
   }
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 1.25rem !important;
 }

@@ -8,26 +8,26 @@ const LoginContainer = () => {
   const dispatch = useDispatch();
   const [loginData, setLoginData] = useState({
     email: "",
-    password: ""
+    password: "",
   });
 
-  const state = useSelector(reduxState => {
+  const state = useSelector((reduxState) => {
     return {
-      userState: reduxState.user
+      userState: reduxState.user,
     };
   });
 
-  const handleChange = e => {
+  const handleChange = (e) => {
     const { name, value } = e.target;
-    setLoginData(prevState => ({ ...prevState, [name]: value }));
+    setLoginData((prevState) => ({ ...prevState, [name]: value }));
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(sendLogin(loginData));
     setLoginData({
       email: "",
-      password: ""
+      password: "",
     });
   };
 
@@ -49,7 +49,7 @@ const LoginContainer = () => {
         />
         <Form.Label>PASSWORD*</Form.Label>
         <Form.Control
-          type="text"
+          type="password"
           name="password"
           value={setLoginData.password}
           placeholder="Password"

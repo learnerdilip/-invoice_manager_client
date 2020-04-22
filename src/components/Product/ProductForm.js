@@ -6,9 +6,9 @@ import { Form } from "react-bootstrap";
 export default function ProductForm() {
   // console.log("the editable data", props.data);
   const dispatch = useDispatch();
-  const state = useSelector(reduxState => {
+  const state = useSelector((reduxState) => {
     return {
-      roomState: reduxState.room
+      roomState: reduxState.room,
     };
   });
 
@@ -21,18 +21,18 @@ export default function ProductForm() {
     warrantyEndDate: null,
     warrantyDocument: "",
     miscellaneousImage: "",
-    roomId: state.roomState.currentRoom.id
+    roomId: state.roomState.currentRoom.id,
   };
   const [productData, setProductData] = useState(initialState);
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(createProduct(productData));
     setProductData(initialState);
   };
 
-  const handleFileSelect = async e => {
+  const handleFileSelect = async (e) => {
     setLoading(true);
     const { name } = e.target; // deconstructing the name as it should work for both
     // console.log("---the e", name);
@@ -46,23 +46,23 @@ export default function ProductForm() {
     );
     const file = await res.json();
 
-    setProductData(prevState => {
+    setProductData((prevState) => {
       return { ...prevState, [name]: file.url };
     });
     // productData.warrantyDocument(file.url);
     setLoading(false);
   };
 
-  const handleChange = e => {
+  const handleChange = (e) => {
     const { name, value } = e.target;
-    setProductData(prevState => {
+    setProductData((prevState) => {
       return { ...prevState, [name]: value };
     });
   };
 
   return (
-    <div className="userform">
-      <Form onSubmit={handleSubmit}>
+    <div>
+      <Form id="userform" onSubmit={handleSubmit}>
         <Form.Label>Document Name</Form.Label>
         <Form.Control
           type="text"
