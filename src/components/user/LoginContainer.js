@@ -39,22 +39,26 @@ const LoginContainer = () => {
       <h2>Please Login here!</h2>
       <div class="g-signin2" data-onsuccess="onSignIn"></div>
       <Form onSubmit={handleSubmit}>
-        <Form.Label>EMAIL*</Form.Label>
-        <Form.Control
-          type="email"
-          name="email"
-          value={setLoginData.email}
-          placeholder="Your email"
-          onChange={handleChange}
-        />
-        <Form.Label>PASSWORD*</Form.Label>
-        <Form.Control
-          type="password"
-          name="password"
-          value={setLoginData.password}
-          placeholder="Password"
-          onChange={handleChange}
-        />
+        <Form.Group controlId="formBasicEmail">
+          <Form.Label>EMAIL*</Form.Label>
+          <Form.Control
+            type="email"
+            name="email"
+            value={setLoginData.email}
+            placeholder="Your email"
+            onChange={handleChange}
+          />
+        </Form.Group>
+        <Form.Group controlId="formBasicPassword">
+          <Form.Label>PASSWORD*</Form.Label>
+          <Form.Control
+            type="password"
+            name="password"
+            value={setLoginData.password}
+            placeholder="Password"
+            onChange={handleChange}
+          />
+        </Form.Group>
         <Button type="submit">Submit</Button>
       </Form>
       <h6 style={{ textAlign: "center" }}>

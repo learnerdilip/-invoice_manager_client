@@ -8,19 +8,18 @@ export default function Heading() {
   const dispatch = useDispatch();
   const handleLogout = () => {
     dispatch({
-      type: "CLEAR_USER_DATA"
+      type: "CLEAR_USER_DATA",
     });
   };
 
-  const state = useSelector(reduxState => reduxState.user.name);
-
+  const state = useSelector((reduxState) => reduxState.user.name);
 
   return (
     <div>
       <Navbar bg="warning" variant="light">
         <Navbar.Brand href="/">
-          <i class="fa fa-archive"></i>
-          <b style={{ fontFamily: "Monoton" }}>INVOICE AND WARRANTY MANAGER</b>
+          {/* <i style={{ display: "inline-block" }} class="fa fa-archive"></i> */}
+          <h1 style={{ fontFamily: "Monoton" }}>WARRANTY MANAGER</h1>
         </Navbar.Brand>
         {state && <h6> USER: {state} </h6>}
         <Link to="/about">

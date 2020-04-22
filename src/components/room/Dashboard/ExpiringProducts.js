@@ -18,21 +18,20 @@ export default function ExpiringProducts() {
 
   if (!state.expiringProductsList)
     return (
-      <div>
-        <h3>
-          You currently have no warranty expiring products due in next 30 days!{" "}
-        </h3>
-      </div>
+      <Card className="expiringproductdashboard">
+        <h3>Great news! You currently have no expiring products</h3>
+      </Card>
     );
   return (
     <Card className="expiringproductdashboard">
-      <h3>The products with expiring warranty are:</h3>
+      <h3 style={{ textDecoration: "underline" }}>
+        The products you need to take immediate care of
+      </h3>
       <ul>
         {state.expiringProductsList.map((item) => (
           <h5 className="expirationwarning">
-            Your <i>{item.deviceName}</i> has{" "}
-            <i style={{ color: "red" }}>{item.warrantyLeft} days</i> left for
-            expiration
+            Your <i style={{ color: "red" }}>{item.deviceName}</i> warranty will
+            expire in <i style={{ color: "red" }}>{item.warrantyLeft} days</i>
           </h5>
         ))}
       </ul>

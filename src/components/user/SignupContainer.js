@@ -12,24 +12,24 @@ const SignupContainer = () => {
     password: "",
     country: "",
     name: "",
-    phone: 0
+    phone: 0,
   });
   // console.log("the signup state--", signupData);
 
-  const state = useSelector(reduxState => {
+  const state = useSelector((reduxState) => {
     return {
-      userState: reduxState.user
+      userState: reduxState.user,
     };
   });
-  const handleChange = e => {
+  const handleChange = (e) => {
     const { name, value } = e.target;
-    setSignupData(prevValue => ({
+    setSignupData((prevValue) => ({
       ...prevValue,
-      [name]: value
+      [name]: value,
     }));
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(sendSignup(signupData));
     setSignupData({
@@ -37,7 +37,7 @@ const SignupContainer = () => {
       password: "",
       country: "",
       name: "",
-      phone: 0
+      phone: 0,
     });
   };
 
@@ -67,14 +67,16 @@ const SignupContainer = () => {
             onChange={handleChange}
           />{" "}
         </Form.Group>
-        <Form.Label>PASSWORD</Form.Label>
-        <Form.Control
-          type="text"
-          name="password"
-          value={signupData.password}
-          placeholder="Password"
-          onChange={handleChange}
-        />
+        <Form.Group controlId="formBasicPassword">
+          <Form.Label>PASSWORD</Form.Label>
+          <Form.Control
+            type="password"
+            name="password"
+            value={signupData.password}
+            placeholder="Password"
+            onChange={handleChange}
+          />
+        </Form.Group>
         <Form.Label>NAME</Form.Label>
         <Form.Control
           type="text"

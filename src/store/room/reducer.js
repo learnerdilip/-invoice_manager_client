@@ -1,4 +1,4 @@
-const initialState = { rooms: [], currentRoom: null };
+const initialState = { rooms: [], currentRoom: null, expiringProductIds: null };
 
 const roomReducer = (state = initialState, action = {}) => {
   switch (action.type) {
@@ -9,7 +9,7 @@ const roomReducer = (state = initialState, action = {}) => {
       return {
         ...state,
         rooms: action.payload.roomsList,
-        expiringProductIds: action.payload.expiringProductId
+        expiringProductIds: action.payload.expiringProductId,
       };
     }
     case "UPDATE_CURRENT_ROOM": {
