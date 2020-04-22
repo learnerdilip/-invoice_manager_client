@@ -8,9 +8,9 @@
   font-family: var(--main-font-family);
   width: 80%;
   margin: auto;
-  border: gray double 0.5px;
+  /* border: gray double 0.5px; */
+  /* box-shadow: grey -2px -20px 20px 14px; */
   padding: 1rem;
-  box-shadow: grey -2px -20px 20px 14px;
   text-align: center;
   min-height: 87vh;
 }
@@ -135,7 +135,7 @@ h2 {
 }
 
 form {
-  width: 60%;
+  width: 35%;
   margin: auto;
   padding: 1rem;
 }
